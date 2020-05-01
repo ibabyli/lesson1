@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			#warp{
+				height: 100%;
+				position: relative;
+				background: gray;
+			}
+			#warp .inner{
+				text-align: center;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%,-50%,0);
+				white-space: nowrap;
+			}
+			#warp > .inner > span{
+				position: relative;
+				
+			}
+			@keyframes move{
+				from{
+					top: 0px;
+				}
+				to{
+					top: -10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<div class="inner">
+				<span>正</span>
+				<span>在</span>
+				<span>加</span>
+				<span>载</span>
+				<span>中</span>
+				<span>请</span>
+				<span>耐</span>
+				<span>心</span>
+				<span>等</span>
+				<span>待</span>
+				<span>一</span>
+				<span>会</span>
+				<span>哦</span>
+				<span>~</span>
+				<span>~</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var spanNodes = document.querySelectorAll("#warp>.inner>span");
+			var color = ["pink","orange","yellowgreen","deeppink","greenyellow","red","yellow","orange","blue","orange","yellowgreen","deeppink","red","blue","green"];
+			for(var i = 0;i<spanNodes.length;i++){
+				spanNodes[i].style.animation="move .3s "+(i*50)+"ms linear infinite alternate";
+				spanNodes[i].style.color = color[i];
+			}
+			
+			
+		}
+		
+	</script>
+</html>
